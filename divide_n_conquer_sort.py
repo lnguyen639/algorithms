@@ -1,27 +1,19 @@
-#Left = [2,6,9,18]
-#Right = [1,3,5,9,24]
-#Array = Left + Right
-Array = [2,6,9,18,1,3,5,9,24]
+Array = [4,2,19,1,7,3,15,14]
 
 def merge(A,p,q,r):
-    n1 = q-p+1
-    n2 = r-(q+1)+1
-    for i in range(n1-1):
-        Left[i] = Array[p+i]
-    for j in range(n2-1):
-        Right[j] = Array[q+1+j]
-    Left.append('NOP')
-    Right.append('NOP')
+    Left=A[p:q+1]+ [float("inf")] #slicing doesn't include the last element
+    Right=A[q+1:r+1] + [float("inf")] #also need the last element to be infinity for the sort to work
 
     i = 0
     j = 0
-    for k in range(p,r):
+    for k in range(p,r+1):
         if Left[i] <= Right[j]:
             Array[k] = Left[i]
             i = i+1
         else:
             Array[k] = Right[j]
             j = j+1
+
     print Array
 
 def merge_sort(A,p=None,r=None):
@@ -32,4 +24,4 @@ def merge_sort(A,p=None,r=None):
         merge_sort(A,q+1,r)
         merge(A,p,q,r)
 
-merge_sort(Array,0,8)
+merge_sort(Array,0,7)
