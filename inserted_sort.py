@@ -1,3 +1,4 @@
+# Run time is f(n^2) where n is length of array
 
 array = [1,5,6,2,99,45,63,17,68,4]
 array = [134,23,63,234,435,1,34,34,67]

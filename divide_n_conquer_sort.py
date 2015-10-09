@@ -1,4 +1,8 @@
+#Run time is f(nlog2(n)) + f(n) where n is the length of the array
+
+
 Array = [4,2,19,1,7,3,15,14]
+Array = [3,41,52,26,38,57,9,49]
 
 def merge(A,start,mid,end):
     Left=A[start:mid+1]+ [float("inf")] #slicing doesn't include the last element
@@ -24,4 +28,4 @@ def merge_sort(A,start=None,end=None):
         merge_sort(A,mid+1,end)
         merge(A,start,mid,end)
 
-merge_sort(Array,0,7)
+merge_sort(Array,0,len(Array)-1)
